@@ -183,6 +183,13 @@ html, body {
   color: #fff;
 }
 
+.event-item h4 :hover {
+  margin: 0;
+  font-size: 14px;
+  color: #a0a0a0;
+  text-decoration: underline;
+}
+
 .event-item p {
   margin: 5px 0 0 0;
   font-size: 12px;

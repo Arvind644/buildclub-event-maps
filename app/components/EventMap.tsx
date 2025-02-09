@@ -22,6 +22,7 @@ interface LumaEvent {
   start_at: string;
   description?: string;
   cover_url?: string;
+  url: string;
 }
 
 interface EventsByCountry {
@@ -116,13 +117,14 @@ export default function EventMap() {
           >
             <Popup className="custom-popup">
               <div className="popup-content">
-                <h3>{event.name}</h3>
+                <h3><a href={`${event.url}`} >{event.name}</a></h3>
                 <p className="location">
                   {[
                     event.location.venue,
                     event.location.city,
                     event.location.country
                   ].filter(Boolean).join(', ')}
+
                 </p>
                 <p className="date">
                   {new Date(event.start_at).toLocaleDateString()}
@@ -141,7 +143,7 @@ export default function EventMap() {
             <div className="events-list">
               {countryEvents.map(event => (
                 <div key={event.api_id} className="event-item">
-                  <h4>{event.name}</h4>
+                  <h4><a href={`${event.url}`} >{event.name}</a></h4>
                   <p>{new Date(event.start_at).toLocaleDateString()}</p>
                 </div>
               ))}
